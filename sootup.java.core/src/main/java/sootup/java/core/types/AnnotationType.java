@@ -104,7 +104,8 @@ public class AnnotationType extends JavaClassType {
       }
       JavaView jv = viewOptional.get();
       if (!jv.getClass(this).isPresent()) {
-        throw new RuntimeException("Class of annotation not in view");
+        throw new RuntimeException(
+            String.format("Class of annotation %s not in view", this.getFullyQualifiedName()));
       }
       JavaSootClass jsc = jv.getClass(this).get();
 
